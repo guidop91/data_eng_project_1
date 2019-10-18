@@ -115,8 +115,13 @@ def process_log_file(cur, filepath):
         except psycopg2.Error as e:
             print("Could not execute song selection query")
             print(e)
-
-        results = cur.fetchone()
+        
+        results = (None, None)
+        try:
+            results = cur.fetchone()
+        except psycopg2.Error as e:
+            print("Could not fetch from cursor")
+            print(e)
 
         if results:
             songid, artistid = results

@@ -146,7 +146,6 @@ song_select = ("""
       s.title = %s AND
       a.name = %s AND
       s.duration = %s
-    LIMIT 10
 """)
 
 # QUERY LISTS
